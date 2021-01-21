@@ -24,3 +24,8 @@ jobs:
         with:
           channel: "stable"
       - run: flutter create helloworld
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v2
+        with:
+          name: helloworld
+          path: helloworld
