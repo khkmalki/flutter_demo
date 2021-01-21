@@ -5,9 +5,6 @@ name: CI
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -21,12 +18,12 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    - name: create folder
-    - run: mkdir -p mytest
-    - name: create file
-    - run: echo hi > mytest/test.txt
-    - uses: actions/upload-artifact@v2
-      with:
-        name: mytest
-        path: mytest/ # or path/to/artifact
+      - uses: actions/checkout@v2
+      - name: create folder
+      - run: mkdir -p mytest
+      - name: create file
+      - run: echo hi > mytest/test.txt
+      - uses: actions/upload-artifact@v2
+        with:
+          name: mytest
+          path: mytest/ # or path/to/artifact
