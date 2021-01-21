@@ -10,21 +10,14 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
+    name: Test 
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: get action
-        uses: actions/checkout@v2
-      - name: create folder
-        run: mkdir -p mytest
-      - name: create file
-        run: echo hi > mytest/test.txt
-      - uses: actions/upload-artifact@v2
-        with:
-          name: mytest
-          path: mytest/ # or path/to/artifact
+    - uses: actions/checkout@v1
+    - name: create folder
+      run: mkdir -p mytest 
+
+    - name: create file
+      run: echo hi > mytest/mytest.txt
